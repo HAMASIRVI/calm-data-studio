@@ -123,7 +123,11 @@ const Contact = () => {
                 {errors.message && <p className="text-destructive text-sm mt-1 text-left pl-4">{errors.message}</p>}
               </div>
 
-              <Button type="submit" variant="outline" size="lg" className="w-full sm:w-auto rounded-full px-8">
+              <Button 
+                type="submit" 
+                size="lg" 
+                className="w-full sm:w-auto rounded-full px-8 bg-teal-500 hover:bg-teal-600 text-white border-none transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              >
                 Connect
               </Button>
             </form>
