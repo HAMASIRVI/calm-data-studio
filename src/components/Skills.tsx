@@ -1,31 +1,39 @@
 const Skills = () => {
-  const skillCategories = [
+  const skills = [
     {
-      title: 'Programming',
-      skills: [
-        { name: 'Python', level: 95 },
-        { name: 'SQL', level: 90 },
-        { name: 'R', level: 80 },
-        { name: 'JavaScript', level: 75 },
-      ],
+      name: 'Python',
+      isHighlighted: true,
+      subSkills: ['Pandas', 'Scikit-learn', 'Matplotlib', 'Numpy'],
     },
     {
-      title: 'Visualization',
-      skills: [
-        { name: 'Tableau', level: 92 },
-        { name: 'Power BI', level: 88 },
-        { name: 'Matplotlib', level: 85 },
-        { name: 'D3.js', level: 70 },
-      ],
+      name: 'SQL',
+      subSkills: [],
     },
     {
-      title: 'Data Tools',
-      skills: [
-        { name: 'Pandas', level: 95 },
-        { name: 'Excel', level: 90 },
-        { name: 'Spark', level: 75 },
-        { name: 'Airflow', level: 72 },
-      ],
+      name: 'EDA',
+      subtitle: 'Exploratory Data Analysis',
+      subSkills: [],
+    },
+    {
+      name: 'ETL',
+      subtitle: 'Extract Transform Load',
+      subSkills: [],
+    },
+    {
+      name: 'MS Excel',
+      subSkills: [],
+    },
+    {
+      name: 'Power BI',
+      subSkills: [],
+    },
+    {
+      name: 'HTML',
+      subSkills: [],
+    },
+    {
+      name: 'CSS',
+      subSkills: [],
     },
   ];
 
@@ -33,48 +41,39 @@ const Skills = () => {
     <section id="skills" className="py-24 bg-muted/30">
       <div className="container mx-auto px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Skills & Expertise
-            </h2>
-            <div className="w-16 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full" />
-            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-              A comprehensive toolkit for transforming raw data into meaningful insights
-            </p>
+          <div className="mb-16">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-1 bg-primary rounded-full" />
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground uppercase tracking-wide">
+                My Analytics Stack
+              </h2>
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {skillCategories.map((category, categoryIndex) => (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {skills.map((skill) => (
               <div
-                key={category.title}
-                className="p-6 rounded-2xl bg-card border border-border hover:shadow-soft transition-all duration-300"
+                key={skill.name}
+                className="group p-5 rounded-xl bg-card border-2 border-border hover:border-primary/60 hover:shadow-hover transition-all duration-300 min-h-[120px] flex flex-col justify-start"
               >
-                <h3 className="text-lg font-semibold text-foreground mb-6">
-                  {category.title}
+                <h3 className={`text-lg font-semibold mb-2 ${skill.isHighlighted ? 'text-primary' : 'text-foreground'}`}>
+                  {skill.name}
                 </h3>
-                <div className="space-y-5">
-                  {category.skills.map((skill, skillIndex) => (
-                    <div key={skill.name}>
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="text-sm font-medium text-foreground">
-                          {skill.name}
-                        </span>
-                        <span className="text-xs text-muted-foreground">
-                          {skill.level}%
-                        </span>
-                      </div>
-                      <div className="h-2 bg-secondary rounded-full overflow-hidden">
-                        <div
-                          className="h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-1000 ease-out"
-                          style={{
-                            width: `${skill.level}%`,
-                            animationDelay: `${(categoryIndex * 4 + skillIndex) * 0.1}s`,
-                          }}
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                {skill.subtitle && (
+                  <p className="text-xs text-muted-foreground mb-2">{skill.subtitle}</p>
+                )}
+                {skill.subSkills && skill.subSkills.length > 0 && (
+                  <div className="flex flex-wrap gap-1.5 mt-auto">
+                    {skill.subSkills.map((subSkill) => (
+                      <span
+                        key={subSkill}
+                        className="text-xs px-2 py-1 rounded-full bg-secondary border border-border text-muted-foreground"
+                      >
+                        {subSkill}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>
