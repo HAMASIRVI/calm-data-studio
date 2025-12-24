@@ -56,36 +56,37 @@ const Projects = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section id="projects" className="py-24 bg-background">
-      <div className="container mx-auto px-6">
+    <section id="projects" className="py-16 sm:py-20 lg:py-24 bg-background">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <div className="text-center mb-10 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 sm:mb-4">
               Featured Projects
             </h2>
-            <div className="w-16 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full" />
-            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+            <div className="w-12 sm:w-16 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full" />
+            <p className="text-sm sm:text-base text-muted-foreground mt-3 sm:mt-4 max-w-2xl mx-auto px-4">
               A selection of data analysis projects showcasing my approach to solving business problems
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 items-stretch">
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 items-stretch">
             {projects.map((project, index) => {
               const isHovered = hoveredIndex === index;
               return (
                 <div
                   key={project.title}
-                  className={`relative overflow-hidden p-6 rounded-2xl bg-card border border-border transition-transform duration-300 ease-out cursor-pointer transform-gpu will-change-transform h-full min-h-[360px] ${
+                  className={`relative overflow-hidden p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl bg-card border border-border transition-transform duration-300 ease-out cursor-pointer transform-gpu will-change-transform h-full min-h-[280px] sm:min-h-[320px] md:min-h-[360px] ${
                     isHovered
-                      ? 'scale-[1.03] shadow-2xl z-20 border-primary/50'
+                      ? 'md:scale-[1.03] shadow-2xl z-20 border-primary/50'
                       : 'hover:shadow-md'
                   }`}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
+                  onTouchStart={() => setHoveredIndex(index)}
                 >
-                  <div className="flex items-start justify-between mb-4">
+                  <div className="flex items-start justify-between mb-3 sm:mb-4">
                     <div
-                      className={`p-3 rounded-xl transition-transform duration-300 ${
+                      className={`p-2 sm:p-3 rounded-lg sm:rounded-xl transition-transform duration-300 ${
                         isHovered ? 'scale-110' : ''
                       } ${
                         project.color === 'primary'
@@ -93,11 +94,11 @@ const Projects = () => {
                           : 'bg-accent/10 text-accent'
                       }`}
                     >
-                      <project.icon size={24} />
+                      <project.icon size={20} className="sm:w-6 sm:h-6" />
                     </div>
                     <div
-                      className={`flex gap-2 transition-opacity duration-300 ${
-                        isHovered ? 'opacity-100' : 'opacity-0'
+                      className={`flex gap-1.5 sm:gap-2 transition-opacity duration-300 ${
+                        isHovered ? 'opacity-100' : 'opacity-100 sm:opacity-0'
                       }`}
                     >
                       {project.github && (
@@ -105,9 +106,9 @@ const Projects = () => {
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-2 rounded-lg hover:bg-secondary transition-colors"
+                          className="p-2 sm:p-2 rounded-lg hover:bg-secondary transition-colors touch-manipulation"
                         >
-                          <Github size={18} className="text-muted-foreground" />
+                          <Github size={16} className="text-muted-foreground sm:w-[18px] sm:h-[18px]" />
                         </a>
                       )}
                       {project.live && (
@@ -115,40 +116,40 @@ const Projects = () => {
                           href={project.live}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-2 rounded-lg hover:bg-secondary transition-colors"
+                          className="p-2 sm:p-2 rounded-lg hover:bg-secondary transition-colors touch-manipulation"
                         >
-                          <ExternalLink size={18} className="text-muted-foreground" />
+                          <ExternalLink size={16} className="text-muted-foreground sm:w-[18px] sm:h-[18px]" />
                         </a>
                       )}
                     </div>
                   </div>
 
                   <h3
-                    className={`text-xl font-semibold mb-2 transition-colors duration-300 ${
+                    className={`text-base sm:text-lg md:text-xl font-semibold mb-2 transition-colors duration-300 ${
                       isHovered ? 'text-primary' : 'text-foreground'
                     }`}
                   >
                     {project.title}
                   </h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                  <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4 leading-relaxed">
                     {project.description}
                   </p>
 
-                  {/* Overlay details (doesn't affect grid row height) */}
+                  {/* Overlay details - hidden on mobile for cleaner UX */}
                   {project.details && project.details.length > 0 && (
                     <div
-                      className={`pointer-events-none absolute inset-x-0 bottom-0 px-4 pb-4 transition-all duration-300 ${
+                      className={`pointer-events-none absolute inset-x-0 bottom-0 px-3 sm:px-4 pb-3 sm:pb-4 transition-all duration-300 hidden md:block ${
                         isHovered
                           ? 'opacity-100 translate-y-0'
                           : 'opacity-0 translate-y-2'
                       }`}
                       aria-hidden={!isHovered}
                     >
-                      <div className="rounded-2xl bg-card/95 backdrop-blur border border-border shadow-soft p-4">
-                        <ul className="space-y-3">
+                      <div className="rounded-xl sm:rounded-2xl bg-card/95 backdrop-blur border border-border shadow-soft p-3 sm:p-4">
+                        <ul className="space-y-2 sm:space-y-3">
                           {project.details.map((detail, idx) => (
-                            <li key={idx} className="flex gap-3 text-sm text-muted-foreground">
-                              <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
+                            <li key={idx} className="flex gap-2 sm:gap-3 text-xs sm:text-sm text-muted-foreground">
+                              <span className="mt-1.5 h-1 w-1 sm:h-1.5 sm:w-1.5 rounded-full bg-primary shrink-0" />
                               <span className="leading-relaxed">{detail}</span>
                             </li>
                           ))}
@@ -157,11 +158,11 @@ const Projects = () => {
                     </div>
                   )}
 
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className={`px-3 py-1 text-xs font-medium rounded-full transition-colors duration-300 ${
+                        className={`px-2 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-medium rounded-full transition-colors duration-300 ${
                           isHovered
                             ? 'bg-primary/10 text-primary'
                             : 'bg-secondary text-secondary-foreground'
