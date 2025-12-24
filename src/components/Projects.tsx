@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Button } from '@/components/ui/button';
 import { ExternalLink, Github, BarChart3, TrendingUp, PieChart, LineChart } from 'lucide-react';
 
 const Projects = () => {
@@ -70,13 +69,13 @@ const Projects = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 items-start">
+          <div className="grid md:grid-cols-2 gap-6 items-stretch">
             {projects.map((project, index) => {
               const isHovered = hoveredIndex === index;
               return (
                 <div
                   key={project.title}
-                  className={`relative overflow-visible p-6 rounded-2xl bg-card border border-border transition-transform duration-300 ease-out cursor-pointer transform-gpu will-change-transform ${
+                  className={`relative overflow-hidden p-6 rounded-2xl bg-card border border-border transition-transform duration-300 ease-out cursor-pointer transform-gpu will-change-transform h-full min-h-[360px] ${
                     isHovered
                       ? 'scale-[1.03] shadow-2xl z-20 border-primary/50'
                       : 'hover:shadow-md'
@@ -138,10 +137,10 @@ const Projects = () => {
                   {/* Overlay details (doesn't affect grid row height) */}
                   {project.details && project.details.length > 0 && (
                     <div
-                      className={`absolute inset-x-0 -bottom-3 px-4 transition-all duration-300 ${
+                      className={`pointer-events-none absolute inset-x-0 bottom-0 px-4 pb-4 transition-all duration-300 ${
                         isHovered
                           ? 'opacity-100 translate-y-0'
-                          : 'opacity-0 translate-y-2 pointer-events-none'
+                          : 'opacity-0 translate-y-2'
                       }`}
                       aria-hidden={!isHovered}
                     >
@@ -177,11 +176,6 @@ const Projects = () => {
             })}
           </div>
 
-          <div className="text-center mt-12">
-            <Button variant="outline" size="lg">
-              View All Projects
-            </Button>
-          </div>
         </div>
       </div>
     </section>
