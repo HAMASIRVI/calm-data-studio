@@ -40,20 +40,23 @@ const About = () => {
             {/* Left Column - Profile Card */}
             <div className="flex justify-center lg:justify-center">
               <div className="relative">
-                {/* Main profile card - Soft teal tinted glass */}
-                <div className="group w-72 h-auto rounded-3xl bg-gradient-to-br from-primary/10 via-accent/5 to-primary/8 backdrop-blur-sm border-2 border-primary/20 shadow-soft flex items-center justify-center overflow-hidden relative transition-all duration-300 hover:border-primary/60 hover:shadow-hover">
-                  <div className="text-center p-5 relative z-10">
-                    <div className="w-32 h-32 mx-auto mb-3 rounded-full overflow-hidden border-2 border-primary/30 shadow-lg ring-2 ring-accent/20 group-hover:ring-primary/50 group-hover:border-primary/50 transition-all duration-300">
-                      <img 
-                        src={profileImg} 
-                        alt="Ganesh Sirvi" 
-                        className="w-full h-full object-cover object-top"
-                      />
+                {/* Gradient border wrapper */}
+                <div className="group w-72 h-80 rounded-[20px] bg-gradient-to-br from-primary via-accent to-primary p-[2px] transition-all duration-300 hover:shadow-[0px_0px_30px_1px_hsl(var(--primary)/0.3)] cursor-pointer">
+                  {/* Inner card */}
+                  <div className="w-full h-full bg-card rounded-[18px] transition-all duration-300 group-hover:scale-[0.98] group-hover:rounded-[16px] flex items-center justify-center">
+                    <div className="text-center p-5 relative z-10">
+                      <div className="w-32 h-32 mx-auto mb-3 rounded-full overflow-hidden border-2 border-primary/30 shadow-lg ring-2 ring-accent/20 group-hover:ring-primary/50 group-hover:border-primary/50 transition-all duration-300">
+                        <img 
+                          src={profileImg} 
+                          alt="Ganesh Sirvi" 
+                          className="w-full h-full object-cover object-top"
+                        />
+                      </div>
+                      <h3 className="text-lg font-semibold text-foreground mb-0.5">Ganesh Sirvi</h3>
+                      <p className="text-xs text-muted-foreground mb-1.5">{calculateAge()} years old</p>
+                      <p className="text-sm font-medium text-primary mb-0.5">Analytics</p>
+                      <p className="text-[11px] text-muted-foreground">Data • Insights • Decision-Making</p>
                     </div>
-                    <h3 className="text-lg font-semibold text-foreground mb-0.5">Ganesh Sirvi</h3>
-                    <p className="text-xs text-muted-foreground mb-1.5">{calculateAge()} years old</p>
-                    <p className="text-sm font-medium text-primary mb-0.5">Analytics</p>
-                    <p className="text-[11px] text-muted-foreground">Data • Insights • Decision-Making</p>
                   </div>
                 </div>
 
