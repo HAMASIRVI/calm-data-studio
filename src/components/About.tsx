@@ -2,6 +2,18 @@ import { Briefcase, GraduationCap, FolderOpen } from 'lucide-react';
 import profileImg from '@/assets/profile.jpg';
 
 const About = () => {
+  // Calculate age from DOB
+  const calculateAge = () => {
+    const dob = new Date(2004, 3, 3); // April 3, 2004 (month is 0-indexed)
+    const today = new Date();
+    let age = today.getFullYear() - dob.getFullYear();
+    const monthDiff = today.getMonth() - dob.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+      age--;
+    }
+    return age;
+  };
+
   const stats = [
     {
       icon: Briefcase,
@@ -28,18 +40,24 @@ const About = () => {
             {/* Left Column - Image/Avatar Placeholder */}
             <div className="flex justify-center lg:justify-start">
               <div className="relative">
-                {/* Main profile card */}
-                <div className="w-80 h-96 rounded-3xl bg-gradient-to-br from-primary/20 via-accent/10 to-primary/5 border border-border shadow-soft flex items-center justify-center overflow-hidden">
-                  <div className="text-center p-8">
-                    <div className="w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden border-4 border-primary/20 shadow-lg">
+                {/* Main profile card - Dark glass theme with hover animation */}
+                <div className="group w-80 h-auto rounded-3xl bg-gradient-to-br from-slate-900/90 via-slate-800/80 to-slate-900/90 backdrop-blur-xl border border-white/10 shadow-2xl flex items-center justify-center overflow-hidden relative transition-all duration-500 hover:border-primary/50 hover:shadow-primary/20 hover:shadow-2xl before:absolute before:inset-0 before:rounded-3xl before:border-2 before:border-transparent before:transition-all before:duration-500 hover:before:border-primary/30 hover:before:animate-pulse">
+                  <div className="text-center p-6 relative z-10">
+                    <div className="w-36 h-36 mx-auto mb-4 rounded-full overflow-hidden border-2 border-white/20 shadow-lg ring-2 ring-primary/20 group-hover:ring-primary/40 transition-all duration-500">
                       <img 
                         src={profileImg} 
                         alt="Ganesh Sirvi" 
                         className="w-full h-full object-cover object-top"
                       />
                     </div>
-                    <h3 className="text-xl font-semibold text-foreground mb-1">Ganesh Sirvi</h3>
-                    <p className="text-sm text-muted-foreground">Data Analyst</p>
+                    <h3 className="text-xl font-semibold text-white mb-0.5">Ganesh Sirvi</h3>
+                    <p className="text-xs text-white/60 mb-2">{calculateAge()} years old</p>
+                    <p className="text-sm font-medium text-primary mb-1">Analytics</p>
+                    <p className="text-xs text-white/50">Data • Insights • Decision-Making</p>
+                  </div>
+                  {/* Animated gradient border effect */}
+                  <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                    <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 blur-sm" />
                   </div>
                 </div>
 
