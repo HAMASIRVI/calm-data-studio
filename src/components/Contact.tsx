@@ -86,7 +86,14 @@ const Contact = () => {
 
           <div className="p-8 rounded-2xl bg-card border border-border">
             {/* Contact Form */}
-            <form onSubmit={handleSubmit} className="space-y-4 mb-8">
+            <form 
+              onSubmit={handleSubmit} 
+              method="POST" 
+              data-netlify="true" 
+              name="contact"
+              className="space-y-4 mb-8"
+            >
+              <input type="hidden" name="form-name" value="contact" />
               <div>
                 <Input
                   type="text"
