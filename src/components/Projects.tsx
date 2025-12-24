@@ -7,6 +7,11 @@ const Projects = () => {
       title: 'Customer Segmentation & Sales Analytics Dashboard',
       description:
         'Created a BI dashboard for customer segmentation and sales insights using Power BI, Python, and SQL. Analyzed 10,000+ transactions with RFM analysis to reveal actionable customer segments and trends.',
+      details: [
+        'Built an interactive Business Intelligence dashboard using Power BI, analyzing 10,000+ customer transactions to identify purchasing patterns and segment customers into 5 distinct groups based on RFM analysis.',
+        'Utilized Python (Pandas, NumPy) for data preprocessing and SQL for database queries, improving data retrieval efficiency by 35%.',
+        'Generated visualizations that enabled stakeholders to make data-driven decisions, potentially increasing targeted marketing ROI.',
+      ],
       tags: ['Python', 'Power BI', 'SQL'],
       icon: BarChart3,
       color: 'primary',
@@ -17,6 +22,7 @@ const Projects = () => {
       title: 'Financial Risk Modeling',
       description:
         'Predictive models for credit risk assessment using machine learning algorithms and statistical analysis.',
+      details: [],
       tags: ['R', 'Python', 'scikit-learn'],
       icon: TrendingUp,
       color: 'accent',
@@ -27,6 +33,7 @@ const Projects = () => {
       title: 'Marketing Campaign Analysis',
       description:
         'A/B testing framework and ROI analysis for multi-channel marketing campaigns across digital platforms.',
+      details: [],
       tags: ['Python', 'Power BI', 'Excel'],
       icon: PieChart,
       color: 'primary',
@@ -37,6 +44,7 @@ const Projects = () => {
       title: 'Supply Chain Optimization',
       description:
         'Real-time monitoring dashboard for supply chain metrics with demand forecasting capabilities.',
+      details: [],
       tags: ['SQL', 'Tableau', 'Python'],
       icon: LineChart,
       color: 'accent',
@@ -63,11 +71,11 @@ const Projects = () => {
             {projects.map((project, index) => (
               <div
                 key={project.title}
-                className="group p-6 rounded-2xl bg-card border border-border hover:shadow-hover transition-all duration-300 hover:-translate-y-1"
+                className="group p-6 rounded-2xl bg-card border border-border hover:shadow-hover transition-all duration-500 ease-out hover:-translate-y-1 hover:border-primary/30"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div
-                    className={`p-3 rounded-xl ${
+                    className={`p-3 rounded-xl transition-transform duration-300 group-hover:scale-110 ${
                       project.color === 'primary'
                         ? 'bg-primary/10 text-primary'
                         : 'bg-accent/10 text-accent'
@@ -75,7 +83,7 @@ const Projects = () => {
                   >
                     <project.icon size={24} />
                   </div>
-                  <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     {project.github && (
                       <a href={project.github} target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg hover:bg-secondary transition-colors">
                         <Github size={18} className="text-muted-foreground" />
@@ -89,18 +97,34 @@ const Projects = () => {
                   </div>
                 </div>
 
-                <h3 className="text-xl font-semibold text-foreground mb-2">
+                <h3 className="text-xl font-semibold text-foreground mb-2 transition-colors duration-300 group-hover:text-primary">
                   {project.title}
                 </h3>
                 <p className="text-muted-foreground mb-4 leading-relaxed">
                   {project.description}
                 </p>
 
+                {/* Expandable details section */}
+                {project.details && project.details.length > 0 && (
+                  <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-500 ease-out">
+                    <div className="overflow-hidden">
+                      <ul className="space-y-3 pt-4 border-t border-border/50 mb-4">
+                        {project.details.map((detail, idx) => (
+                          <li key={idx} className="flex gap-3 text-sm text-muted-foreground">
+                            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
+                            <span className="leading-relaxed">{detail}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )}
+
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground"
+                      className="px-3 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground transition-colors duration-300 group-hover:bg-primary/10 group-hover:text-primary"
                     >
                       {tag}
                     </span>
