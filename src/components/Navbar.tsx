@@ -30,17 +30,17 @@ const Navbar = () => {
           : 'bg-transparent'
       }`}
     >
-      <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="flex items-center justify-between h-14 sm:h-16">
           <a
             href="#"
-            className="text-lg font-semibold text-foreground hover:text-primary transition-colors"
+            className="text-base sm:text-lg font-semibold text-foreground hover:text-primary transition-colors"
           >
             Sirvi's Insights
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6 lg:gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -63,36 +63,39 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-foreground"
+            className="md:hidden p-2 text-foreground touch-manipulation"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border animate-fade-in">
-            <div className="flex flex-col gap-4">
+          <div className="md:hidden py-4 border-t border-border animate-fade-in bg-background/95 backdrop-blur-lg">
+            <div className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
+                  className="text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-colors py-3 px-2 rounded-lg touch-manipulation"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.label}
                 </a>
               ))}
-              <Button variant="hero" size="sm" className="w-fit" asChild>
-                <a
-                  href="https://drive.google.com/file/d/1cCIgTgeY52ruId0zSGDNls6TlNmt-tK8/view?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Download CV
-                </a>
-              </Button>
+              <div className="pt-3 mt-2 border-t border-border">
+                <Button variant="hero" size="sm" className="w-full" asChild>
+                  <a
+                    href="https://drive.google.com/file/d/1cCIgTgeY52ruId0zSGDNls6TlNmt-tK8/view?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Download CV
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>
         )}

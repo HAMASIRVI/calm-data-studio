@@ -12,25 +12,25 @@ const Hero = () => {
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-hero-gradient">
       {/* Floating decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/6 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-float" />
+        <div className="absolute top-1/4 left-1/6 w-32 sm:w-48 md:w-64 h-32 sm:h-48 md:h-64 bg-primary/5 rounded-full blur-3xl animate-float" />
         <div
-          className="absolute bottom-1/4 right-1/6 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-float"
+          className="absolute bottom-1/4 right-1/6 w-48 sm:w-64 md:w-96 h-48 sm:h-64 md:h-96 bg-accent/5 rounded-full blur-3xl animate-float"
           style={{ animationDelay: '-3s' }}
         />
       </div>
 
-      <div className="container mx-auto px-6 pt-20">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="container mx-auto px-4 sm:px-6 pt-20 pb-8">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
           {/* Left Column - Text Content */}
-          <div className="text-left">
+          <div className="text-center lg:text-left">
             <div className="animate-fade-up" style={{ animationDelay: '0.1s', opacity: 0 }}>
-              <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 text-primary text-sm font-medium mb-8">
+              <span className="inline-block px-3 sm:px-4 py-1.5 rounded-full border border-primary/30 text-primary text-xs sm:text-sm font-medium mb-6 sm:mb-8">
                 Available for Hire
               </span>
             </div>
 
             <h1
-              className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-8 leading-[1.1] tracking-tight animate-fade-up"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 sm:mb-8 leading-[1.1] tracking-tight animate-fade-up"
               style={{ animationDelay: '0.2s', opacity: 0 }}
             >
               <span className="block">Ganesh</span>
@@ -38,15 +38,15 @@ const Hero = () => {
             </h1>
 
             <p
-              className="text-lg md:text-xl text-muted-foreground mb-10 max-w-lg leading-relaxed animate-fade-up"
+              className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 sm:mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed animate-fade-up"
               style={{ animationDelay: '0.3s', opacity: 0 }}
             >
               I help businesses make data-driven decisions through comprehensive analysis,
               stunning visualizations, and clear storytelling.
             </p>
 
-            <div className="animate-fade-up flex flex-col sm:flex-row items-start gap-6" style={{ animationDelay: '0.4s', opacity: 0 }}>
-              <Button variant="hero" size="lg" asChild>
+            <div className="animate-fade-up flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 sm:gap-6" style={{ animationDelay: '0.4s', opacity: 0 }}>
+              <Button variant="hero" size="lg" className="w-full sm:w-auto" asChild>
                 <a href="#projects">Explore My Work</a>
               </Button>
 
@@ -58,16 +58,16 @@ const Hero = () => {
                       href={link.href}
                       target={link.href.startsWith('mailto:') ? undefined : '_blank'}
                       rel={link.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
-                      className="flex items-center justify-center w-12 h-12 rounded-full border border-border bg-card hover:bg-secondary transition-all duration-200"
+                      className="flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-border bg-card hover:bg-secondary transition-all duration-200 touch-manipulation"
                       aria-label={link.label}
                     >
                       <link.icon
-                        size={22}
+                        size={20}
                         strokeWidth={2}
-                        className="text-foreground group-hover:scale-110 duration-200 group-hover:text-primary transition-all"
+                        className="text-foreground group-hover:scale-110 duration-200 group-hover:text-primary transition-all sm:w-[22px] sm:h-[22px]"
                       />
                     </a>
-                    <span className="absolute -top-12 left-1/2 -translate-x-1/2 z-20 origin-center scale-0 px-3 rounded-lg border border-border bg-card py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out group-hover:scale-100 whitespace-nowrap">
+                    <span className="absolute -top-12 left-1/2 -translate-x-1/2 z-20 origin-center scale-0 px-3 rounded-lg border border-border bg-card py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out group-hover:scale-100 whitespace-nowrap hidden sm:block">
                       {link.label}
                     </span>
                   </div>
@@ -149,12 +149,12 @@ const Hero = () => {
 
         {/* Scroll indicator */}
         <div
-          className="mt-16 text-center lg:text-left animate-fade-up"
+          className="mt-8 sm:mt-12 lg:mt-16 text-center lg:text-left animate-fade-up"
           style={{ animationDelay: '0.6s', opacity: 0 }}
         >
           <a
             href="#about"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors touch-manipulation py-2"
           >
             <span className="text-sm">Scroll to explore</span>
             <ArrowDown size={16} className="animate-bounce" />

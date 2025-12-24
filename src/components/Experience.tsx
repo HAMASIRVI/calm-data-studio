@@ -2,83 +2,83 @@ import { Briefcase, MapPin, Calendar } from 'lucide-react';
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-20 bg-background relative overflow-hidden">
+    <section id="experience" className="py-16 sm:py-20 bg-background relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -right-32 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -left-32 w-80 h-80 bg-primary/3 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 -right-16 sm:-right-32 w-48 sm:w-64 md:w-96 h-48 sm:h-64 md:h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 -left-16 sm:-left-32 w-40 sm:w-56 md:w-80 h-40 sm:h-56 md:h-80 bg-primary/3 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary mb-4">
-            <Briefcase className="w-4 h-4" />
-            <span className="text-sm font-medium">Professional Experience</span>
+        <div className="text-center mb-10 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-primary/10 text-primary mb-4">
+            <Briefcase className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            <span className="text-xs sm:text-sm font-medium">Professional Experience</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 sm:mb-4">
             Work Experience
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4">
             Hands-on experience in data analytics through internships and real-world projects.
           </p>
         </div>
 
         {/* Experience Card */}
         <div className="max-w-4xl mx-auto">
-          <div className="group relative bg-card/40 backdrop-blur-md border border-border/50 rounded-2xl p-8 transition-all duration-500 hover:bg-card/60 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2">
+          <div className="group relative bg-card/40 backdrop-blur-md border border-border/50 rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 transition-all duration-500 hover:bg-card/60 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 md:hover:-translate-y-2">
             {/* Gradient overlay on hover */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl sm:rounded-2xl" />
             
             <div className="relative z-10">
               {/* Header */}
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
+              <div className="flex flex-col gap-3 sm:gap-4 mb-4 sm:mb-6">
                 <div>
-                  <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-xl sm:text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
                     Data Analyst Intern
                   </h3>
-                  <p className="text-lg text-primary font-medium mt-1">
+                  <p className="text-base sm:text-lg text-primary font-medium mt-1">
                     Swecha Telangana
                   </p>
                 </div>
-                <div className="flex flex-col gap-2 text-sm text-muted-foreground">
-                  <div className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4 text-primary" />
+                <div className="flex flex-wrap gap-3 sm:gap-4 text-xs sm:text-sm text-muted-foreground">
+                  <div className="flex items-center gap-1.5 sm:gap-2">
+                    <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary flex-shrink-0" />
                     <span>Hyderabad, India</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4 text-primary" />
+                  <div className="flex items-center gap-1.5 sm:gap-2">
+                    <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary flex-shrink-0" />
                     <span>May 2024 – Jun 2024</span>
                   </div>
                 </div>
               </div>
 
               {/* Divider */}
-              <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-6" />
+              <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-4 sm:mb-6" />
 
               {/* Responsibilities */}
-              <ul className="space-y-4">
-                <li className="flex gap-3">
-                  <span className="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-primary" />
-                  <p className="text-muted-foreground leading-relaxed">
+              <ul className="space-y-3 sm:space-y-4">
+                <li className="flex gap-2 sm:gap-3">
+                  <span className="flex-shrink-0 w-1.5 h-1.5 sm:w-2 sm:h-2 mt-2 rounded-full bg-primary" />
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                     Executed end-to-end data collection and preprocessing for 300+ records, transforming unstructured field data into machine-readable formats using Python and Excel, reducing manual processing time by 40%.
                   </p>
                 </li>
-                <li className="flex gap-3">
-                  <span className="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-primary" />
-                  <p className="text-muted-foreground leading-relaxed">
+                <li className="flex gap-2 sm:gap-3">
+                  <span className="flex-shrink-0 w-1.5 h-1.5 sm:w-2 sm:h-2 mt-2 rounded-full bg-primary" />
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                     Implemented rigorous data validation protocols and quality assurance checks, achieving 100% data integrity by eliminating duplicates and inconsistencies prior to database ingestion.
                   </p>
                 </li>
-                <li className="flex gap-3">
-                  <span className="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-primary" />
-                  <p className="text-muted-foreground leading-relaxed">
+                <li className="flex gap-2 sm:gap-3">
+                  <span className="flex-shrink-0 w-1.5 h-1.5 sm:w-2 sm:h-2 mt-2 rounded-full bg-primary" />
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                     Performed exploratory data analysis to identify demographic trends and usage patterns, delivering actionable insights that optimized the organization's outreach strategy and improved targeting efficiency by 25%.
                   </p>
                 </li>
-                <li className="flex gap-3">
-                  <span className="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-primary" />
-                  <p className="text-muted-foreground leading-relaxed">
+                <li className="flex gap-2 sm:gap-3">
+                  <span className="flex-shrink-0 w-1.5 h-1.5 sm:w-2 sm:h-2 mt-2 rounded-full bg-primary" />
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                     Collaborated with cross-functional teams and key stakeholders to standardize data collection methodologies, creating comprehensive documentation that improved data consistency and stakeholder buy-in across future projects.
                   </p>
                 </li>
