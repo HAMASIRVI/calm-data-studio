@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Mail, Linkedin, Github, Download } from 'lucide-react';
+import { Mail, Linkedin, Github } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const Contact = () => {
@@ -157,15 +157,6 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Download CV Button */}
-            <div className="mt-8 pt-8 border-t border-border">
-              <Button variant="hero" size="lg" asChild className="rounded-full">
-                <a href="/Ganesh_Sirvi_CV.pdf" download>
-                  <Download size={18} />
-                  Download CV
-                </a>
-              </Button>
-            </div>
           </div>
         </div>
       </div>

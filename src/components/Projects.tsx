@@ -70,15 +70,15 @@ const Projects = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-6 items-start">
             {projects.map((project, index) => {
               const isHovered = hoveredIndex === index;
               return (
                 <div
                   key={project.title}
-                  className={`relative p-6 rounded-2xl bg-card border border-border transition-all duration-500 ease-out cursor-pointer ${
-                    isHovered 
-                      ? 'scale-105 shadow-2xl z-10 border-primary/50' 
+                  className={`relative overflow-visible p-6 rounded-2xl bg-card border border-border transition-transform duration-300 ease-out cursor-pointer transform-gpu will-change-transform ${
+                    isHovered
+                      ? 'scale-[1.03] shadow-2xl z-20 border-primary/50'
                       : 'hover:shadow-md'
                   }`}
                   onMouseEnter={() => setHoveredIndex(index)}
@@ -96,40 +96,65 @@ const Projects = () => {
                     >
                       <project.icon size={24} />
                     </div>
-                    <div className={`flex gap-2 transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
+                    <div
+                      className={`flex gap-2 transition-opacity duration-300 ${
+                        isHovered ? 'opacity-100' : 'opacity-0'
+                      }`}
+                    >
                       {project.github && (
-                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg hover:bg-secondary transition-colors">
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-2 rounded-lg hover:bg-secondary transition-colors"
+                        >
                           <Github size={18} className="text-muted-foreground" />
                         </a>
                       )}
                       {project.live && (
-                        <a href={project.live} target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg hover:bg-secondary transition-colors">
+                        <a
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-2 rounded-lg hover:bg-secondary transition-colors"
+                        >
                           <ExternalLink size={18} className="text-muted-foreground" />
                         </a>
                       )}
                     </div>
                   </div>
 
-                  <h3 className={`text-xl font-semibold mb-2 transition-colors duration-300 ${isHovered ? 'text-primary' : 'text-foreground'}`}>
+                  <h3
+                    className={`text-xl font-semibold mb-2 transition-colors duration-300 ${
+                      isHovered ? 'text-primary' : 'text-foreground'
+                    }`}
+                  >
                     {project.title}
                   </h3>
                   <p className="text-muted-foreground mb-4 leading-relaxed">
                     {project.description}
                   </p>
 
-                  {/* Details section - only visible on hover for this specific card */}
+                  {/* Overlay details (doesn't affect grid row height) */}
                   {project.details && project.details.length > 0 && (
-                    <div className={`transition-all duration-500 ease-out overflow-hidden ${
-                      isHovered ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                    }`}>
-                      <ul className="space-y-3 pt-4 border-t border-border/50 mb-4">
-                        {project.details.map((detail, idx) => (
-                          <li key={idx} className="flex gap-3 text-sm text-muted-foreground">
-                            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
-                            <span className="leading-relaxed">{detail}</span>
-                          </li>
-                        ))}
-                      </ul>
+                    <div
+                      className={`absolute inset-x-0 -bottom-3 px-4 transition-all duration-300 ${
+                        isHovered
+                          ? 'opacity-100 translate-y-0'
+                          : 'opacity-0 translate-y-2 pointer-events-none'
+                      }`}
+                      aria-hidden={!isHovered}
+                    >
+                      <div className="rounded-2xl bg-card/95 backdrop-blur border border-border shadow-soft p-4">
+                        <ul className="space-y-3">
+                          {project.details.map((detail, idx) => (
+                            <li key={idx} className="flex gap-3 text-sm text-muted-foreground">
+                              <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
+                              <span className="leading-relaxed">{detail}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   )}
 
@@ -138,8 +163,8 @@ const Projects = () => {
                       <span
                         key={tag}
                         className={`px-3 py-1 text-xs font-medium rounded-full transition-colors duration-300 ${
-                          isHovered 
-                            ? 'bg-primary/10 text-primary' 
+                          isHovered
+                            ? 'bg-primary/10 text-primary'
                             : 'bg-secondary text-secondary-foreground'
                         }`}
                       >
