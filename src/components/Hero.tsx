@@ -1,7 +1,13 @@
 import { Button } from '@/components/ui/button';
-import { ArrowDown, TrendingUp, Users, DollarSign, Download } from 'lucide-react';
+import { ArrowDown, TrendingUp, Users, DollarSign, Github, Linkedin, Mail } from 'lucide-react';
 
 const Hero = () => {
+  const socialLinks = [
+    { icon: Github, href: 'https://github.com/HAMASIRVI', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/ganesh-sirvi/', label: 'LinkedIn' },
+    { icon: Mail, href: 'mailto:Ganeshsirvi600@gmail.com', label: 'Email' },
+  ];
+
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-hero-gradient">
       {/* Floating decorative elements */}
@@ -39,13 +45,34 @@ const Hero = () => {
               stunning visualizations, and clear storytelling.
             </p>
 
-            <div className="animate-fade-up" style={{ animationDelay: '0.4s', opacity: 0 }}>
+            <div className="animate-fade-up flex flex-col sm:flex-row items-start gap-6" style={{ animationDelay: '0.4s', opacity: 0 }}>
               <Button variant="hero" size="lg" asChild>
-                <a href="/Ganesh_Sirvi_CV.pdf" download>
-                  <Download size={18} />
-                  Download CV
-                </a>
+                <a href="#projects">Explore My Work</a>
               </Button>
+
+              {/* Social Links */}
+              <div className="flex gap-4">
+                {socialLinks.map((link) => (
+                  <div key={link.label} className="group relative">
+                    <a
+                      href={link.href}
+                      target={link.href.startsWith('mailto:') ? undefined : '_blank'}
+                      rel={link.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                      className="block"
+                      aria-label={link.label}
+                    >
+                      <link.icon
+                        size={28}
+                        strokeWidth={2}
+                        className="text-foreground hover:scale-125 duration-200 hover:stroke-primary transition-all"
+                      />
+                    </a>
+                    <span className="absolute -top-12 left-1/2 -translate-x-1/2 z-20 origin-center scale-0 px-3 rounded-lg border border-border bg-card py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out group-hover:scale-100 whitespace-nowrap">
+                      {link.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
