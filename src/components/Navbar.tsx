@@ -35,7 +35,7 @@ const Navbar = () => {
             href="#"
             className="text-lg font-semibold text-foreground hover:text-primary transition-colors"
           >
-            DataAnalyst
+            Sirvi's Insights
           </a>
 
           {/* Desktop Navigation */}

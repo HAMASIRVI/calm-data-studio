@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { ArrowDown, BarChart3, TrendingUp, Database } from 'lucide-react';
+import { ArrowDown, BarChart3, TrendingUp, Database, Users, DollarSign } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -8,67 +8,151 @@ const Hero = () => {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/6 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-float" />
         <div className="absolute bottom-1/4 right-1/6 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '-3s' }} />
-        
-        {/* Floating icons */}
-        <div className="absolute top-1/3 left-[15%] text-primary/20 animate-float" style={{ animationDelay: '-1s' }}>
-          <BarChart3 size={48} />
-        </div>
-        <div className="absolute top-1/2 right-[20%] text-accent/20 animate-float" style={{ animationDelay: '-2s' }}>
-          <TrendingUp size={40} />
-        </div>
-        <div className="absolute bottom-1/3 left-[25%] text-primary/15 animate-float" style={{ animationDelay: '-4s' }}>
-          <Database size={36} />
-        </div>
       </div>
 
       <div className="container mx-auto px-6 pt-20">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="animate-fade-up" style={{ animationDelay: '0.1s', opacity: 0 }}>
-            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary text-secondary-foreground text-sm font-medium mb-6">
-              Data Analyst & Visualization Expert
-            </span>
-          </div>
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left Column - Text Content */}
+          <div className="text-left">
+            <div className="animate-fade-up" style={{ animationDelay: '0.1s', opacity: 0 }}>
+              <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 text-primary text-sm font-medium mb-8">
+                Available for Hire
+              </span>
+            </div>
 
-          <h1
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight animate-fade-up"
-            style={{ animationDelay: '0.2s', opacity: 0 }}
-          >
-            Transforming Data into{' '}
-            <span className="text-gradient">Actionable Insights</span>
-          </h1>
-
-          <p
-            className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-up"
-            style={{ animationDelay: '0.3s', opacity: 0 }}
-          >
-            I help businesses make data-driven decisions through comprehensive analysis,
-            stunning visualizations, and clear storytelling.
-          </p>
-
-          <div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-up"
-            style={{ animationDelay: '0.4s', opacity: 0 }}
-          >
-            <Button variant="hero" size="lg" asChild>
-              <a href="#projects">View My Work</a>
-            </Button>
-            <Button variant="outline" size="lg" asChild>
-              <a href="#about">Learn More</a>
-            </Button>
-          </div>
-
-          <div
-            className="mt-16 animate-fade-up"
-            style={{ animationDelay: '0.6s', opacity: 0 }}
-          >
-            <a
-              href="#about"
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+            <h1
+              className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-8 leading-[1.1] tracking-tight animate-fade-up"
+              style={{ animationDelay: '0.2s', opacity: 0 }}
             >
-              <span className="text-sm">Scroll to explore</span>
-              <ArrowDown size={16} className="animate-bounce" />
-            </a>
+              <span className="block">Ganesh</span>
+              <span className="block">Sirvi</span>
+            </h1>
+
+            <p
+              className="text-lg md:text-xl text-muted-foreground mb-10 max-w-lg leading-relaxed animate-fade-up"
+              style={{ animationDelay: '0.3s', opacity: 0 }}
+            >
+              I help businesses make data-driven decisions through comprehensive analysis,
+              stunning visualizations, and clear storytelling.
+            </p>
+
+            <div
+              className="animate-fade-up"
+              style={{ animationDelay: '0.4s', opacity: 0 }}
+            >
+              <Button variant="hero" size="lg" asChild>
+                <a href="#about">Meet the Analyst</a>
+              </Button>
+            </div>
           </div>
+
+          {/* Right Column - Analytics Cards */}
+          <div className="hidden lg:flex flex-col gap-4 animate-fade-up" style={{ animationDelay: '0.5s', opacity: 0 }}>
+            {/* Live Analytics Card */}
+            <div className="bg-card rounded-2xl p-6 shadow-soft border border-border">
+              <div className="flex items-center gap-2 mb-6">
+                <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                <span className="text-sm font-medium text-foreground">Live Analytics</span>
+              </div>
+              
+              <div className="flex items-center gap-6">
+                {/* Circular Progress */}
+                <div className="relative">
+                  <svg className="w-24 h-24 transform -rotate-90">
+                    <circle
+                      cx="48"
+                      cy="48"
+                      r="40"
+                      stroke="currentColor"
+                      strokeWidth="8"
+                      fill="none"
+                      className="text-muted/30"
+                    />
+                    <circle
+                      cx="48"
+                      cy="48"
+                      r="40"
+                      stroke="currentColor"
+                      strokeWidth="8"
+                      fill="none"
+                      strokeDasharray="251.2"
+                      strokeDashoffset="100"
+                      className="text-primary"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                  <div className="absolute inset-0 flex flex-col items-center justify-center">
+                    <span className="text-xl font-bold text-foreground">60%</span>
+                    <span className="text-xs text-muted-foreground">Efficiency</span>
+                  </div>
+                </div>
+
+                {/* Stats */}
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                      <Users size={16} className="text-primary" />
+                    </div>
+                    <div>
+                      <span className="font-semibold text-foreground">2.4k</span>
+                      <span className="text-xs text-primary ml-1">+12%</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                      <DollarSign size={16} className="text-primary" />
+                    </div>
+                    <div>
+                      <span className="font-semibold text-foreground">$84k</span>
+                      <span className="text-xs text-primary ml-1">+5%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Traffic Overview Card */}
+            <div className="bg-card rounded-2xl p-6 shadow-soft border border-border">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Traffic Overview</span>
+                <TrendingUp size={16} className="text-primary" />
+              </div>
+              
+              {/* Bar Chart */}
+              <div className="flex items-end gap-2 h-20 mb-4">
+                {[60, 80, 45, 90, 70, 85, 55, 75].map((height, i) => (
+                  <div
+                    key={i}
+                    className="flex-1 bg-primary/20 rounded-t-sm"
+                    style={{ height: `${height}%` }}
+                  />
+                ))}
+              </div>
+
+              <div>
+                <h3 className="font-semibold text-foreground mb-1">Sales Forecast</h3>
+                <p className="text-sm text-muted-foreground mb-3">Predictive modeling using random forests on retail data.</p>
+                <div className="flex gap-2">
+                  <span className="px-2 py-1 text-xs bg-secondary text-secondary-foreground rounded">Scikit-learn</span>
+                  <span className="px-2 py-1 text-xs bg-secondary text-secondary-foreground rounded">Pandas</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div
+          className="mt-16 text-center lg:text-left animate-fade-up"
+          style={{ animationDelay: '0.6s', opacity: 0 }}
+        >
+          <a
+            href="#about"
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <span className="text-sm">Scroll to explore</span>
+            <ArrowDown size={16} className="animate-bounce" />
+          </a>
         </div>
       </div>
     </section>
