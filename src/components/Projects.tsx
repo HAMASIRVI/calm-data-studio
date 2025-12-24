@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Github, BarChart3, TrendingUp, PieChart, LineChart } from 'lucide-react';
 
@@ -53,6 +54,8 @@ const Projects = () => {
     },
   ];
 
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   return (
     <section id="projects" className="py-24 bg-background">
       <div className="container mx-auto px-6">
@@ -68,46 +71,57 @@ const Projects = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {projects.map((project, index) => (
-              <div
-                key={project.title}
-                className="group p-6 rounded-2xl bg-card border border-border hover:shadow-hover transition-all duration-500 ease-out hover:-translate-y-1 hover:border-primary/30"
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <div
-                    className={`p-3 rounded-xl transition-transform duration-300 group-hover:scale-110 ${
-                      project.color === 'primary'
-                        ? 'bg-primary/10 text-primary'
-                        : 'bg-accent/10 text-accent'
-                    }`}
-                  >
-                    <project.icon size={24} />
+            {projects.map((project, index) => {
+              const isHovered = hoveredIndex === index;
+              return (
+                <div
+                  key={project.title}
+                  className={`relative p-6 rounded-2xl bg-card border border-border transition-all duration-500 ease-out cursor-pointer ${
+                    isHovered 
+                      ? 'scale-105 shadow-2xl z-10 border-primary/50' 
+                      : 'hover:shadow-md'
+                  }`}
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <div
+                      className={`p-3 rounded-xl transition-transform duration-300 ${
+                        isHovered ? 'scale-110' : ''
+                      } ${
+                        project.color === 'primary'
+                          ? 'bg-primary/10 text-primary'
+                          : 'bg-accent/10 text-accent'
+                      }`}
+                    >
+                      <project.icon size={24} />
+                    </div>
+                    <div className={`flex gap-2 transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
+                      {project.github && (
+                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg hover:bg-secondary transition-colors">
+                          <Github size={18} className="text-muted-foreground" />
+                        </a>
+                      )}
+                      {project.live && (
+                        <a href={project.live} target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg hover:bg-secondary transition-colors">
+                          <ExternalLink size={18} className="text-muted-foreground" />
+                        </a>
+                      )}
+                    </div>
                   </div>
-                  <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    {project.github && (
-                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg hover:bg-secondary transition-colors">
-                        <Github size={18} className="text-muted-foreground" />
-                      </a>
-                    )}
-                    {project.live && (
-                      <a href={project.live} target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg hover:bg-secondary transition-colors">
-                        <ExternalLink size={18} className="text-muted-foreground" />
-                      </a>
-                    )}
-                  </div>
-                </div>
 
-                <h3 className="text-xl font-semibold text-foreground mb-2 transition-colors duration-300 group-hover:text-primary">
-                  {project.title}
-                </h3>
-                <p className="text-muted-foreground mb-4 leading-relaxed">
-                  {project.description}
-                </p>
+                  <h3 className={`text-xl font-semibold mb-2 transition-colors duration-300 ${isHovered ? 'text-primary' : 'text-foreground'}`}>
+                    {project.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    {project.description}
+                  </p>
 
-                {/* Expandable details section */}
-                {project.details && project.details.length > 0 && (
-                  <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-500 ease-out">
-                    <div className="overflow-hidden">
+                  {/* Details section - only visible on hover for this specific card */}
+                  {project.details && project.details.length > 0 && (
+                    <div className={`transition-all duration-500 ease-out overflow-hidden ${
+                      isHovered ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                    }`}>
                       <ul className="space-y-3 pt-4 border-t border-border/50 mb-4">
                         {project.details.map((detail, idx) => (
                           <li key={idx} className="flex gap-3 text-sm text-muted-foreground">
@@ -117,21 +131,25 @@ const Projects = () => {
                         ))}
                       </ul>
                     </div>
-                  </div>
-                )}
+                  )}
 
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground transition-colors duration-300 group-hover:bg-primary/10 group-hover:text-primary"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className={`px-3 py-1 text-xs font-medium rounded-full transition-colors duration-300 ${
+                          isHovered 
+                            ? 'bg-primary/10 text-primary' 
+                            : 'bg-secondary text-secondary-foreground'
+                        }`}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           <div className="text-center mt-12">
