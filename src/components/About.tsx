@@ -77,19 +77,13 @@ const About = () => {
 
               <div className="space-y-4">
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Hello! I'm a passionate data analyst with a keen eye for patterns
-                  and a love for turning complex datasets into compelling stories.
+                  I'm a data analytics student who enjoys working with real datasets and turning messy information into clear, usable insights. I like understanding how data connects to actual business decisions, not just charts on a screen.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  My journey in data analytics began with a curiosity about how
-                  numbers can reveal hidden truths about businesses and user behavior.
-                  Today, I specialize in helping organizations leverage their data
-                  to make informed decisions.
+                  Through hands-on projects and an internship, I've worked with Python, SQL, Excel, and Power BI to clean data, explore patterns, and build dashboards that tell a simple story. I'm especially interested in customer analytics and practical BI use cases.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  When I'm not diving into datasets, you'll find me exploring new
-                  visualization techniques, contributing to open-source projects,
-                  or sharing insights through technical writing.
+                  Right now, I'm focused on learning, building projects, and growing as an entry-level analytics professional.
                 </p>
               </div>
 
