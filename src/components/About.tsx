@@ -36,9 +36,9 @@ const About = () => {
     <section id="about" className="py-24 bg-secondary/30">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             {/* Left Column - Profile Card */}
-            <div className="flex justify-center lg:justify-end">
+            <div className="flex justify-center lg:justify-center">
               <div className="relative">
                 {/* Main profile card - Soft teal tinted glass */}
                 <div className="group w-72 h-auto rounded-3xl bg-gradient-to-br from-primary/10 via-accent/5 to-primary/8 backdrop-blur-sm border-2 border-primary/20 shadow-soft flex items-center justify-center overflow-hidden relative transition-all duration-300 hover:border-primary/60 hover:shadow-hover">
