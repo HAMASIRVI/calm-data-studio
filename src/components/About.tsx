@@ -36,27 +36,25 @@ const About = () => {
     <section id="about" className="py-24 bg-secondary/30">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Left Column - Image/Avatar Placeholder */}
-            <div className="flex justify-center lg:justify-start">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Left Column - Profile Card */}
+            <div className="flex justify-center lg:justify-end">
               <div className="relative">
-                {/* Main profile card - Soft glass theme matching site colors */}
-                <div className="group w-80 h-auto rounded-3xl bg-gradient-to-br from-card via-secondary/50 to-card backdrop-blur-sm border border-border shadow-soft flex items-center justify-center overflow-hidden relative transition-all duration-500 hover:border-primary/40 hover:shadow-hover">
-                  <div className="text-center p-6 relative z-10">
-                    <div className="w-36 h-36 mx-auto mb-4 rounded-full overflow-hidden border-3 border-primary/20 shadow-lg ring-2 ring-accent/20 group-hover:ring-primary/40 transition-all duration-500">
+                {/* Main profile card - Soft teal tinted glass */}
+                <div className="group w-72 h-auto rounded-3xl bg-gradient-to-br from-primary/10 via-accent/5 to-primary/8 backdrop-blur-sm border-2 border-primary/20 shadow-soft flex items-center justify-center overflow-hidden relative transition-all duration-300 hover:border-primary/60 hover:shadow-hover">
+                  <div className="text-center p-5 relative z-10">
+                    <div className="w-32 h-32 mx-auto mb-3 rounded-full overflow-hidden border-2 border-primary/30 shadow-lg ring-2 ring-accent/20 group-hover:ring-primary/50 group-hover:border-primary/50 transition-all duration-300">
                       <img 
                         src={profileImg} 
                         alt="Ganesh Sirvi" 
                         className="w-full h-full object-cover object-top"
                       />
                     </div>
-                    <h3 className="text-xl font-semibold text-foreground mb-0.5">Ganesh Sirvi</h3>
-                    <p className="text-xs text-muted-foreground mb-2">{calculateAge()} years old</p>
-                    <p className="text-sm font-medium text-primary mb-1">Analytics</p>
-                    <p className="text-xs text-muted-foreground">Data • Insights • Decision-Making</p>
+                    <h3 className="text-lg font-semibold text-foreground mb-0.5">Ganesh Sirvi</h3>
+                    <p className="text-xs text-muted-foreground mb-1.5">{calculateAge()} years old</p>
+                    <p className="text-sm font-medium text-primary mb-0.5">Analytics</p>
+                    <p className="text-[11px] text-muted-foreground">Data • Insights • Decision-Making</p>
                   </div>
-                  {/* Subtle animated border glow on hover */}
-                  <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
                 </div>
 
                 {/* Decorative floating elements */}
