@@ -1,74 +1,14 @@
-import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Mail, Linkedin, Github } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
 
 const Contact = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-  const [errors, setErrors] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-
   const socialLinks = [
     { icon: Github, href: 'https://github.com/HAMASIRVI', label: 'GitHub' },
     { icon: Linkedin, href: 'https://www.linkedin.com/in/ganesh-sirvi/', label: 'LinkedIn' },
     { icon: Mail, href: 'mailto:Ganeshsirvi600@gmail.com', label: 'Email' },
   ];
-
-  const validateForm = () => {
-    const newErrors = { name: '', email: '', message: '' };
-    let isValid = true;
-
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
-      isValid = false;
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-      isValid = false;
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email';
-      isValid = false;
-    }
-
-    if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
-      isValid = false;
-    }
-
-    setErrors(newErrors);
-    return isValid;
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (validateForm()) {
-      toast({
-        title: "Message sent!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
-      });
-      setFormData({ name: '', email: '', message: '' });
-    }
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    if (errors[name as keyof typeof errors]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
-    }
-  };
 
   return (
     <section id="contact" className="py-16 sm:py-20 lg:py-24 bg-muted/30">
@@ -87,7 +27,6 @@ const Contact = () => {
           <div className="p-5 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl bg-card border border-border">
             {/* Contact Form */}
             <form 
-              onSubmit={handleSubmit} 
               method="POST" 
               data-netlify="true" 
               name="contact"
@@ -99,11 +38,9 @@ const Contact = () => {
                   type="text"
                   name="name"
                   placeholder="Name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className={`bg-secondary/50 border-border/50 rounded-full px-4 sm:px-6 py-5 sm:py-6 text-sm sm:text-base ${errors.name ? 'border-destructive' : ''}`}
+                  required
+                  className="bg-secondary/50 border-border/50 rounded-full px-4 sm:px-6 py-5 sm:py-6 text-sm sm:text-base"
                 />
-                {errors.name && <p className="text-destructive text-xs sm:text-sm mt-1 text-left pl-4">{errors.name}</p>}
               </div>
               
               <div>
@@ -111,23 +48,19 @@ const Contact = () => {
                   type="email"
                   name="email"
                   placeholder="Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className={`bg-secondary/50 border-border/50 rounded-full px-4 sm:px-6 py-5 sm:py-6 text-sm sm:text-base ${errors.email ? 'border-destructive' : ''}`}
+                  required
+                  className="bg-secondary/50 border-border/50 rounded-full px-4 sm:px-6 py-5 sm:py-6 text-sm sm:text-base"
                 />
-                {errors.email && <p className="text-destructive text-xs sm:text-sm mt-1 text-left pl-4">{errors.email}</p>}
               </div>
               
               <div>
                 <Textarea
                   name="message"
                   placeholder="Message"
-                  value={formData.message}
-                  onChange={handleChange}
+                  required
                   rows={4}
-                  className={`bg-secondary/50 border-border/50 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 resize-none text-sm sm:text-base min-h-[120px] ${errors.message ? 'border-destructive' : ''}`}
+                  className="bg-secondary/50 border-border/50 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 resize-none text-sm sm:text-base min-h-[120px]"
                 />
-                {errors.message && <p className="text-destructive text-xs sm:text-sm mt-1 text-left pl-4">{errors.message}</p>}
               </div>
 
               <Button 
