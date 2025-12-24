@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { ArrowDown, TrendingUp, Users, DollarSign, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Mail, BarChart3, Users, PieChart, Database, Lightbulb, TrendingUp, Target, Brain } from 'lucide-react';
 
 const Hero = () => {
   const socialLinks = [
@@ -78,93 +78,69 @@ const Hero = () => {
 
           {/* Right Column - Analytics Cards */}
           <div className="hidden lg:flex flex-col gap-4 animate-fade-up" style={{ animationDelay: '0.5s', opacity: 0 }}>
-            {/* Live Analytics Card */}
+            {/* Analytics Focus Card */}
             <div className="bg-card rounded-2xl p-6 shadow-soft border border-border">
               <div className="flex items-center gap-2 mb-6">
                 <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                <span className="text-sm font-medium text-foreground">Live Analytics</span>
+                <span className="text-sm font-medium text-foreground">Analytics Focus</span>
               </div>
-              
-              <div className="flex items-center gap-6">
-                {/* Circular Progress */}
-                <div className="relative">
-                  <svg className="w-24 h-24 transform -rotate-90">
-                    <circle
-                      cx="48"
-                      cy="48"
-                      r="40"
-                      stroke="currentColor"
-                      strokeWidth="8"
-                      fill="none"
-                      className="text-muted/30"
-                    />
-                    <circle
-                      cx="48"
-                      cy="48"
-                      r="40"
-                      stroke="currentColor"
-                      strokeWidth="8"
-                      fill="none"
-                      strokeDasharray="251.2"
-                      strokeDashoffset="100"
-                      className="text-primary"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                  <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <span className="text-xl font-bold text-foreground">60%</span>
-                    <span className="text-xs text-muted-foreground">Efficiency</span>
-                  </div>
-                </div>
 
-                {/* Stats */}
-                <div className="flex flex-col gap-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <Users size={16} className="text-primary" />
-                    </div>
-                    <div>
-                      <span className="font-semibold text-foreground">2.4k</span>
-                      <span className="text-xs text-primary ml-1">+12%</span>
-                    </div>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <Database size={16} className="text-primary" />
                   </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <DollarSign size={16} className="text-primary" />
-                    </div>
-                    <div>
-                      <span className="font-semibold text-foreground">$84k</span>
-                      <span className="text-xs text-primary ml-1">+5%</span>
-                    </div>
+                  <span className="text-sm text-foreground">Data Cleaning & EDA</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <Users size={16} className="text-primary" />
                   </div>
+                  <span className="text-sm text-foreground">Customer Segmentation (RFM)</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <BarChart3 size={16} className="text-primary" />
+                  </div>
+                  <span className="text-sm text-foreground">Dashboarding (Power BI)</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <PieChart size={16} className="text-primary" />
+                  </div>
+                  <span className="text-sm text-foreground">SQL Querying</span>
                 </div>
               </div>
             </div>
 
             {/* Traffic Overview Card */}
+            {/* What I'm Exploring Card */}
             <div className="bg-card rounded-2xl p-6 shadow-soft border border-border">
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Traffic Overview</span>
-                <TrendingUp size={16} className="text-primary" />
-              </div>
-              
-              {/* Bar Chart */}
-              <div className="flex items-end gap-2 h-20 mb-4">
-                {[60, 80, 45, 90, 70, 85, 55, 75].map((height, i) => (
-                  <div
-                    key={i}
-                    className="flex-1 bg-primary/20 rounded-t-sm"
-                    style={{ height: `${height}%` }}
-                  />
-                ))}
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-2">
+                  <Lightbulb size={16} className="text-primary" />
+                  <span className="text-sm font-medium text-foreground">What I'm Exploring</span>
+                </div>
               </div>
 
-              <div>
-                <h3 className="font-semibold text-foreground mb-1">Sales Forecast</h3>
-                <p className="text-sm text-muted-foreground mb-3">Predictive modeling using random forests on retail data.</p>
-                <div className="flex gap-2">
-                  <span className="px-2 py-1 text-xs bg-secondary text-secondary-foreground rounded">Scikit-learn</span>
-                  <span className="px-2 py-1 text-xs bg-secondary text-secondary-foreground rounded">Pandas</span>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center">
+                    <Target size={16} className="text-accent" />
+                  </div>
+                  <span className="text-sm text-foreground">Customer Analytics</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center">
+                    <TrendingUp size={16} className="text-accent" />
+                  </div>
+                  <span className="text-sm text-foreground">Marketing Analytics</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center">
+                    <Brain size={16} className="text-accent" />
+                  </div>
+                  <span className="text-sm text-foreground">Predictive Modeling</span>
                 </div>
               </div>
             </div>
