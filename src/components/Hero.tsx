@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { ArrowDown, BarChart3, TrendingUp, Database, Users, DollarSign } from 'lucide-react';
+import { ArrowDown, TrendingUp, Users, DollarSign, Download } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -7,7 +7,10 @@ const Hero = () => {
       {/* Floating decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/6 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 right-1/6 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '-3s' }} />
+        <div
+          className="absolute bottom-1/4 right-1/6 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-float"
+          style={{ animationDelay: '-3s' }}
+        />
       </div>
 
       <div className="container mx-auto px-6 pt-20">
@@ -36,12 +39,12 @@ const Hero = () => {
               stunning visualizations, and clear storytelling.
             </p>
 
-            <div
-              className="animate-fade-up"
-              style={{ animationDelay: '0.4s', opacity: 0 }}
-            >
+            <div className="animate-fade-up" style={{ animationDelay: '0.4s', opacity: 0 }}>
               <Button variant="hero" size="lg" asChild>
-                <a href="#about">Meet the Analyst</a>
+                <a href="/Ganesh_Sirvi_CV.pdf" download>
+                  <Download size={18} />
+                  Download CV
+                </a>
               </Button>
             </div>
           </div>
