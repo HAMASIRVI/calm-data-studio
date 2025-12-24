@@ -10,6 +10,14 @@ const Skills = () => {
       subSkills: [],
     },
     {
+      name: 'MS Excel',
+      subSkills: [],
+    },
+    {
+      name: 'Power BI',
+      subSkills: [],
+    },
+    {
       name: 'EDA',
       subtitle: 'Exploratory Data Analysis',
       subSkills: [],
@@ -17,14 +25,6 @@ const Skills = () => {
     {
       name: 'ETL',
       subtitle: 'Extract Transform Load',
-      subSkills: [],
-    },
-    {
-      name: 'MS Excel',
-      subSkills: [],
-    },
-    {
-      name: 'Power BI',
       subSkills: [],
     },
     {
@@ -54,26 +54,28 @@ const Skills = () => {
             {skills.map((skill) => (
               <div
                 key={skill.name}
-                className="group p-5 rounded-xl bg-card border-2 border-border hover:border-primary/60 hover:shadow-hover transition-all duration-300 min-h-[120px] flex flex-col justify-start"
+                className="group rounded-[14px] bg-gradient-to-br from-primary via-accent to-primary p-[2px] transition-all duration-300 hover:shadow-[0px_0px_30px_1px_hsl(var(--primary)/0.3)] cursor-pointer min-h-[120px]"
               >
-                <h3 className={`text-lg font-semibold mb-2 ${skill.isHighlighted ? 'text-primary' : 'text-foreground'}`}>
-                  {skill.name}
-                </h3>
-                {skill.subtitle && (
-                  <p className="text-xs text-muted-foreground mb-2">{skill.subtitle}</p>
-                )}
-                {skill.subSkills && skill.subSkills.length > 0 && (
-                  <div className="flex flex-wrap gap-1.5 mt-auto">
-                    {skill.subSkills.map((subSkill) => (
-                      <span
-                        key={subSkill}
-                        className="text-xs px-2 py-1 rounded-full bg-secondary border border-border text-muted-foreground"
-                      >
-                        {subSkill}
-                      </span>
-                    ))}
-                  </div>
-                )}
+                <div className="w-full h-full bg-card rounded-[12px] transition-all duration-300 group-hover:scale-[0.98] group-hover:rounded-[10px] p-5 flex flex-col justify-start">
+                  <h3 className={`text-lg font-semibold mb-2 ${skill.isHighlighted ? 'text-primary' : 'text-foreground'}`}>
+                    {skill.name}
+                  </h3>
+                  {skill.subtitle && (
+                    <p className="text-xs text-muted-foreground mb-2">{skill.subtitle}</p>
+                  )}
+                  {skill.subSkills && skill.subSkills.length > 0 && (
+                    <div className="flex flex-wrap gap-1.5 mt-auto">
+                      {skill.subSkills.map((subSkill) => (
+                        <span
+                          key={subSkill}
+                          className="text-xs px-2 py-1 rounded-full bg-secondary border border-border text-muted-foreground"
+                        >
+                          {subSkill}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
             ))}
           </div>
