@@ -51,20 +51,20 @@ const Hero = () => {
               </Button>
 
               {/* Social Links */}
-              <div className="flex gap-4">
+              <div className="flex items-center gap-3">
                 {socialLinks.map((link) => (
                   <div key={link.label} className="group relative">
                     <a
                       href={link.href}
                       target={link.href.startsWith('mailto:') ? undefined : '_blank'}
                       rel={link.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
-                      className="block"
+                      className="flex items-center justify-center w-12 h-12 rounded-full border border-border bg-card hover:bg-secondary transition-all duration-200"
                       aria-label={link.label}
                     >
                       <link.icon
-                        size={28}
+                        size={22}
                         strokeWidth={2}
-                        className="text-foreground hover:scale-125 duration-200 hover:stroke-primary transition-all"
+                        className="text-foreground group-hover:scale-110 duration-200 group-hover:text-primary transition-all"
                       />
                     </a>
                     <span className="absolute -top-12 left-1/2 -translate-x-1/2 z-20 origin-center scale-0 px-3 rounded-lg border border-border bg-card py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out group-hover:scale-100 whitespace-nowrap">
