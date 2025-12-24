@@ -40,25 +40,23 @@ const About = () => {
             {/* Left Column - Image/Avatar Placeholder */}
             <div className="flex justify-center lg:justify-start">
               <div className="relative">
-                {/* Main profile card - Dark glass theme with hover animation */}
-                <div className="group w-80 h-auto rounded-3xl bg-gradient-to-br from-slate-900/90 via-slate-800/80 to-slate-900/90 backdrop-blur-xl border border-white/10 shadow-2xl flex items-center justify-center overflow-hidden relative transition-all duration-500 hover:border-primary/50 hover:shadow-primary/20 hover:shadow-2xl before:absolute before:inset-0 before:rounded-3xl before:border-2 before:border-transparent before:transition-all before:duration-500 hover:before:border-primary/30 hover:before:animate-pulse">
+                {/* Main profile card - Soft glass theme matching site colors */}
+                <div className="group w-80 h-auto rounded-3xl bg-gradient-to-br from-card via-secondary/50 to-card backdrop-blur-sm border border-border shadow-soft flex items-center justify-center overflow-hidden relative transition-all duration-500 hover:border-primary/40 hover:shadow-hover">
                   <div className="text-center p-6 relative z-10">
-                    <div className="w-36 h-36 mx-auto mb-4 rounded-full overflow-hidden border-2 border-white/20 shadow-lg ring-2 ring-primary/20 group-hover:ring-primary/40 transition-all duration-500">
+                    <div className="w-36 h-36 mx-auto mb-4 rounded-full overflow-hidden border-3 border-primary/20 shadow-lg ring-2 ring-accent/20 group-hover:ring-primary/40 transition-all duration-500">
                       <img 
                         src={profileImg} 
                         alt="Ganesh Sirvi" 
                         className="w-full h-full object-cover object-top"
                       />
                     </div>
-                    <h3 className="text-xl font-semibold text-white mb-0.5">Ganesh Sirvi</h3>
-                    <p className="text-xs text-white/60 mb-2">{calculateAge()} years old</p>
+                    <h3 className="text-xl font-semibold text-foreground mb-0.5">Ganesh Sirvi</h3>
+                    <p className="text-xs text-muted-foreground mb-2">{calculateAge()} years old</p>
                     <p className="text-sm font-medium text-primary mb-1">Analytics</p>
-                    <p className="text-xs text-white/50">Data • Insights • Decision-Making</p>
+                    <p className="text-xs text-muted-foreground">Data • Insights • Decision-Making</p>
                   </div>
-                  {/* Animated gradient border effect */}
-                  <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                    <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 blur-sm" />
-                  </div>
+                  {/* Subtle animated border glow on hover */}
+                  <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
                 </div>
 
                 {/* Decorative floating elements */}
