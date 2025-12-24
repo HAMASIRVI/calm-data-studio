@@ -124,7 +124,7 @@ const Contact = () => {
               </div>
 
               <Button type="submit" variant="outline" size="lg" className="w-full sm:w-auto rounded-full px-8">
-                Let's go →
+                Connect
               </Button>
             </form>
 

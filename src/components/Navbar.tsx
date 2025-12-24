@@ -49,8 +49,14 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
-            <Button variant="hero" size="sm">
-              Get in Touch
+            <Button variant="hero" size="sm" asChild>
+              <a
+                href="https://drive.google.com/file/d/1cCIgTgeY52ruId0zSGDNls6TlNmt-tK8/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Download CV
+              </a>
             </Button>
           </div>
 
@@ -77,8 +83,14 @@ const Navbar = () => {
                   {link.label}
                 </a>
               ))}
-              <Button variant="hero" size="sm" className="w-fit">
-                Get in Touch
+              <Button variant="hero" size="sm" className="w-fit" asChild>
+                <a
+                  href="https://drive.google.com/file/d/1cCIgTgeY52ruId0zSGDNls6TlNmt-tK8/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Download CV
+                </a>
               </Button>
             </div>
           </div>
