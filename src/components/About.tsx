@@ -1,20 +1,21 @@
 import { Briefcase, GraduationCap, FolderOpen } from 'lucide-react';
+import profileImg from '@/assets/profile.jpg';
 
 const About = () => {
   const stats = [
     {
       icon: Briefcase,
-      value: '5+',
-      label: 'Years Exp.',
+      value: '2 Yrs',
+      label: 'Projects + Internship',
     },
     {
       icon: GraduationCap,
-      value: "Master's",
+      value: "Bachelor's",
       label: 'Degree',
     },
     {
       icon: FolderOpen,
-      value: '50+',
+      value: '5+',
       label: 'Projects',
     },
   ];
@@ -30,8 +31,12 @@ const About = () => {
                 {/* Main profile card */}
                 <div className="w-80 h-96 rounded-3xl bg-gradient-to-br from-primary/20 via-accent/10 to-primary/5 border border-border shadow-soft flex items-center justify-center overflow-hidden">
                   <div className="text-center p-8">
-                    <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                      <span className="text-4xl font-bold text-primary-foreground">GS</span>
+                    <div className="w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden border-4 border-primary/20 shadow-lg">
+                      <img 
+                        src={profileImg} 
+                        alt="Ganesh Sirvi" 
+                        className="w-full h-full object-cover object-top"
+                      />
                     </div>
                     <h3 className="text-xl font-semibold text-foreground mb-1">Ganesh Sirvi</h3>
                     <p className="text-sm text-muted-foreground">Data Analyst</p>
