@@ -4,12 +4,14 @@ import { ExternalLink, Github, BarChart3, TrendingUp, PieChart, LineChart } from
 const Projects = () => {
   const projects = [
     {
-      title: 'E-commerce Sales Analytics',
+      title: 'Customer Segmentation & Sales Analytics Dashboard',
       description:
-        'Comprehensive dashboard analyzing customer behavior, sales trends, and inventory optimization for a retail client.',
-      tags: ['Python', 'Tableau', 'SQL'],
+        'Created a BI dashboard for customer segmentation and sales insights using Power BI, Python, and SQL. Analyzed 10,000+ transactions with RFM analysis to reveal actionable customer segments and trends.',
+      tags: ['Python', 'Power BI', 'SQL'],
       icon: BarChart3,
       color: 'primary',
+      github: 'https://github.com/HAMASIRVI/Customer-Segmentation-Analysis',
+      live: 'https://rfm-analysis-dashboard-live.netlify.app/',
     },
     {
       title: 'Financial Risk Modeling',
@@ -18,6 +20,8 @@ const Projects = () => {
       tags: ['R', 'Python', 'scikit-learn'],
       icon: TrendingUp,
       color: 'accent',
+      github: '',
+      live: '',
     },
     {
       title: 'Marketing Campaign Analysis',
@@ -26,6 +30,8 @@ const Projects = () => {
       tags: ['Python', 'Power BI', 'Excel'],
       icon: PieChart,
       color: 'primary',
+      github: '',
+      live: '',
     },
     {
       title: 'Supply Chain Optimization',
@@ -34,6 +40,8 @@ const Projects = () => {
       tags: ['SQL', 'Tableau', 'Python'],
       icon: LineChart,
       color: 'accent',
+      github: '',
+      live: '',
     },
   ];
 
@@ -68,12 +76,16 @@ const Projects = () => {
                     <project.icon size={24} />
                   </div>
                   <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <button className="p-2 rounded-lg hover:bg-secondary transition-colors">
-                      <Github size={18} className="text-muted-foreground" />
-                    </button>
-                    <button className="p-2 rounded-lg hover:bg-secondary transition-colors">
-                      <ExternalLink size={18} className="text-muted-foreground" />
-                    </button>
+                    {project.github && (
+                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg hover:bg-secondary transition-colors">
+                        <Github size={18} className="text-muted-foreground" />
+                      </a>
+                    )}
+                    {project.live && (
+                      <a href={project.live} target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg hover:bg-secondary transition-colors">
+                        <ExternalLink size={18} className="text-muted-foreground" />
+                      </a>
+                    )}
                   </div>
                 </div>
 
