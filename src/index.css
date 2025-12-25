@@ -179,3 +179,171 @@
     transform: translateX(0);
   }
 }
+
+/* Theme Toggle Styles */
+.theme-toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 56px;
+  height: 28px;
+  cursor: pointer;
+}
+
+.theme-toggle-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.theme-toggle-slider {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 28px;
+  transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.theme-toggle-input:checked + .theme-toggle-slider {
+  background: linear-gradient(180deg, #87ceeb 0%, #4db8ff 100%);
+}
+
+/* Sun */
+.theme-toggle-sun {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 4px;
+  left: 4px;
+  color: #fbbf24;
+  transform: translateX(28px) rotate(0deg) scale(0);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+}
+
+.theme-toggle-input:checked + .theme-toggle-slider .theme-toggle-sun {
+  transform: translateX(0) rotate(360deg) scale(1);
+}
+
+.theme-toggle-rays {
+  transform-origin: center;
+  animation: none;
+}
+
+.theme-toggle-input:checked + .theme-toggle-slider .theme-toggle-rays {
+  animation: raysPulse 2s ease-in-out infinite;
+}
+
+@keyframes raysPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Moon */
+.theme-toggle-moon {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 5px;
+  right: 5px;
+  color: #fef3c7;
+  transform: translateX(0) rotate(0deg) scale(1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+}
+
+.theme-toggle-input:checked + .theme-toggle-slider .theme-toggle-moon {
+  transform: translateX(-28px) rotate(-90deg) scale(0);
+}
+
+/* Stars */
+.theme-toggle-stars {
+  position: absolute;
+  inset: 0;
+  opacity: 1;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-toggle-input:checked + .theme-toggle-slider .theme-toggle-stars {
+  opacity: 0;
+}
+
+.theme-toggle-star {
+  position: absolute;
+  color: #fef3c7;
+  animation: twinkle 1.5s ease-in-out infinite;
+}
+
+.theme-toggle-star-1 {
+  width: 4px;
+  height: 4px;
+  top: 6px;
+  left: 12px;
+  animation-delay: 0s;
+}
+
+.theme-toggle-star-2 {
+  width: 3px;
+  height: 3px;
+  top: 14px;
+  left: 22px;
+  animation-delay: 0.5s;
+}
+
+.theme-toggle-star-3 {
+  width: 3px;
+  height: 3px;
+  top: 20px;
+  left: 8px;
+  animation-delay: 1s;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.8); }
+}
+
+/* Clouds */
+.theme-toggle-clouds {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-toggle-input:checked + .theme-toggle-slider .theme-toggle-clouds {
+  opacity: 1;
+}
+
+.theme-toggle-cloud {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.theme-toggle-cloud-1 {
+  width: 20px;
+  height: 12px;
+  bottom: 2px;
+  right: 2px;
+  animation: cloudFloat1 3s ease-in-out infinite;
+}
+
+.theme-toggle-cloud-2 {
+  width: 16px;
+  height: 10px;
+  bottom: 8px;
+  right: 18px;
+  animation: cloudFloat2 4s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes cloudFloat1 {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-3px); }
+}
+
+@keyframes cloudFloat2 {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(3px); }
+}
