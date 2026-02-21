@@ -35,7 +35,7 @@ const Experience = () => {
               <div className="flex flex-col gap-3 sm:gap-4 mb-4 sm:mb-6">
                 <div>
                   <h3 className="text-xl sm:text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-                    Data Analyst Intern
+                    AI Research Intern – Multilingual Language Model Development
                   </h3>
                   <p className="text-base sm:text-lg text-primary font-medium mt-1">
                     Swecha Telangana
@@ -61,25 +61,43 @@ const Experience = () => {
                 <li className="flex gap-2 sm:gap-3">
                   <span className="flex-shrink-0 w-1.5 h-1.5 sm:w-2 sm:h-2 mt-2 rounded-full bg-primary" />
                   <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                    Executed end-to-end data collection and preprocessing for 300+ records, transforming unstructured field data into machine-readable formats using Python and Excel, reducing manual processing time by 40%.
+                    Collected and curated multilingual textual datasets (Telugu and other regional languages) to support training of a Large Language Model (LLM).
                   </p>
                 </li>
                 <li className="flex gap-2 sm:gap-3">
                   <span className="flex-shrink-0 w-1.5 h-1.5 sm:w-2 sm:h-2 mt-2 rounded-full bg-primary" />
                   <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                    Implemented rigorous data validation protocols and quality assurance checks, achieving 100% data integrity by eliminating duplicates and inconsistencies prior to database ingestion.
+                    Structured, cleaned, and standardized story-based linguistic data for model training and evaluation.
                   </p>
                 </li>
                 <li className="flex gap-2 sm:gap-3">
                   <span className="flex-shrink-0 w-1.5 h-1.5 sm:w-2 sm:h-2 mt-2 rounded-full bg-primary" />
                   <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                    Performed exploratory data analysis to identify demographic trends and usage patterns, delivering actionable insights that optimized the organization's outreach strategy and improved targeting efficiency by 25%.
+                    Contributed to the development of a native-language AI model capable of generating responses in regional Indian languages.
                   </p>
                 </li>
                 <li className="flex gap-2 sm:gap-3">
                   <span className="flex-shrink-0 w-1.5 h-1.5 sm:w-2 sm:h-2 mt-2 rounded-full bg-primary" />
                   <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                    Collaborated with cross-functional teams and key stakeholders to standardize data collection methodologies, creating comprehensive documentation that improved data consistency and stakeholder buy-in across future projects.
+                    Ensured linguistic accuracy, contextual consistency, and proper formatting of dataset inputs.
+                  </p>
+                </li>
+                <li className="flex gap-2 sm:gap-3">
+                  <span className="flex-shrink-0 w-1.5 h-1.5 sm:w-2 sm:h-2 mt-2 rounded-full bg-primary" />
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                    Collaborated with cross-functional AI research teams to improve dataset quality and language representation.
+                  </p>
+                </li>
+                <li className="flex gap-2 sm:gap-3">
+                  <span className="flex-shrink-0 w-1.5 h-1.5 sm:w-2 sm:h-2 mt-2 rounded-full bg-primary" />
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                    Assisted in organizing large-scale text corpora for supervised learning workflows.
+                  </p>
+                </li>
+                <li className="flex gap-2 sm:gap-3">
+                  <span className="flex-shrink-0 w-1.5 h-1.5 sm:w-2 sm:h-2 mt-2 rounded-full bg-primary" />
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                    Supported regional language preservation through AI-driven NLP initiatives.
                   </p>
                 </li>
               </ul>
